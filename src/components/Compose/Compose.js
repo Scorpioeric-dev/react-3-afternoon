@@ -6,26 +6,24 @@ import "./Compose.css";
 //////////////////////////////////////////////////////// THIS COMPONENT IS BEING RENDERED IN THE *APP* COMPONENT
 
 export default class Compose extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       text: ""
     };
-
-    this.createPost = this.createPost.bind(this);
   }
 
   updateText(text) {
     this.setState({ text });
   }
-  createPost() {
+  createPost = () => {
     const { text } = this.state;
     const { createPostFn } = this.props;
 
     createPostFn(text);
     this.setState({ text: "" });
-  }
+  };
 
   render() {
     // Destructuring
